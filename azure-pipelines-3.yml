@@ -4,10 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 
 trigger:
-- main
+- '*'
 
 pool:
-  name: Default # Replace Default with the name of your agent pool if you used a different pool
+  name: 'Default' # Replace Default with the name of your agent pool if you used a different pool
 
 variables:
   buildConfiguration: 'Release'
@@ -30,7 +30,7 @@ steps:
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+- script: 'echo "$(Build.Space Game-Web-CI), $(Build.115), $(Build.20240125.1)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
