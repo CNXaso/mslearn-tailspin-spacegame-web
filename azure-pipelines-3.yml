@@ -24,17 +24,6 @@ steps:
     versionSource: 'spec'
     versionSpec: '18.x'
     checkLatest: true
-- task: npmAuthenticate@0
-  inputs:
-    workingFile: '$(Build.SourcesDirectory)/src/.npmrc'
-- bash: |
-    npm ci --no-optional
-  workingDirectory: '$(Build.SourcesDirectory)/src'
-  condition: succeeded()
-- bash: |
-    npm run-script build
-  workingDirectory: '$(Build.SourcesDirectory)/src'
-  condition: succeeded()
 - task: Npm@1
   inputs:
     command: 'install'
