@@ -18,6 +18,9 @@ steps:
   inputs:
     packageType: sdk
     version: '6.x'
+- task: CmdLine@2
+  inputs:
+     script: npm --version
 - task: NodeTool@0
   inputs:
     versionSource: 'spec'
@@ -26,28 +29,24 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
-
+- task: CmdLine@2
+  displayName: 'comple Sass assets'
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
-
 - task: gulp@1
   displayName: 'Run gulp tasks'
-
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
-
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
-
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
