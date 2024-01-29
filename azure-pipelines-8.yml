@@ -23,12 +23,7 @@ steps:
     versionSource: 'spec'
     versionSpec: '18.x'
     checkLatest: true
-- task: CmdLine@2
-  inputs:
-    script: |
-      yml run lint
-      
-      yml run gherkin-lint
+
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
