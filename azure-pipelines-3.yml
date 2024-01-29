@@ -24,9 +24,7 @@ steps:
     versionSource: 'spec'
     versionSpec: '18.x'
     checkLatest: true
-- task: Npm@1
-  inputs:
-    command: 'install'
+
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
