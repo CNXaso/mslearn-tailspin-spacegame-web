@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: Grant access Test On
+pool: Non Grant access Test
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
