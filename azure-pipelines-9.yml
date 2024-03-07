@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: Default
+pool: Grant access Test On
 
 steps:
 - script: echo Hello, world!
